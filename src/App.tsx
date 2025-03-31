@@ -1,35 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./assets/index.scss";
+import { createBrowserHistory } from "history";
+import {
+  unstable_HistoryRouter as HistoryRouter,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import HomeTemplate from "./template/HomeTemplate";
+import Home from "./pages/Home/Home";
+import Details from "./pages/Details/Details";
+import Login from "./pages/Login/Login";
+import Register from "./pages/Register/Register";
+import Cart from "./pages/Cart/Cart";
+import Profile from "./pages/Profile/Profile";
+import Search from "./pages/Search/Search";
+import { store } from "./redux/store";
+import { Provider } from "react-redux";
+
+export const history: any = createBrowserHistory();
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Provider store={store}>
+      <HistoryRouter history={history}>
+        <Routes>
+          <Route path="" element={<HomeTemplate />}>
+            <Route index element={<Home />}></Route>
+            <Route path="login" element={<Login />}></Route>
+            <Route path="register" element={<Register />}></Route>
+            <Route path="cart" element={<Cart />}></Route>
+            <Route path="profile" element={<Profile />}></Route>
+            <Route path="search" element={<Search />}></Route>
+            <Route path="detail">
+              <Route path=":id" element={<Details />}></Route>
+            </Route>
+            <Route path="*" element={<Navigate to={"/"} />}></Route>
+          </Route>
+        </Routes>
+      </HistoryRouter>
+    </Provider>
+  );
 }
 
-export default App
+export default App;
