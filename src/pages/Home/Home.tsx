@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
+import { useSelector } from "react-redux";
+import { Rootstate } from "../../redux/store";
 
-type Props = {}
+type Props = {};
 
 const Home = (props: Props) => {
-  return (
-    <div>Home</div>
-  )
-}
+  const { number } = useSelector((state: Rootstate) => state.number);
+  return <div>Home</div>;
+};
 
-export default Home
+export default Home;

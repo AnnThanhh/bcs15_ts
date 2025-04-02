@@ -5,3 +5,5 @@ export const store = configureStore({
     number: (state = 1) => state,
   },
 });
+
+export type Rootstate = ReturnType<typeof store.getState>;
