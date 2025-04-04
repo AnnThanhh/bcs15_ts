@@ -46,7 +46,7 @@ export interface RelatedProduct {
   name: string;
   alias: string;
   feature: boolean;
-  price: number;
+  price: number; 
   description: string;
   shortDescription: string;
   image: string;

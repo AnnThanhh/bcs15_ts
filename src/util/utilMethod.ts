@@ -27,3 +27,17 @@ export function getCookie(name: string): string | null {
 export function deleteCookie(name: string): void {
   document.cookie = `${name}=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;`;
 }
+
+export const getDataJsonStorage = (key: string): any => {
+  const data = localStorage.getItem(key);
+  try {
+    if (!data || data === "undefined") return null;
+    return JSON.parse(data);
+  } catch (error) {
+    console.error(
+      `Error parsing JSON from localStorage for key "${key}":`,
+      error
+    );
+    return null;
+  }
+};

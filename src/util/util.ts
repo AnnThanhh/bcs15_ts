@@ -6,6 +6,8 @@ import axios, {
 } from "axios";
 
 export const ACCESS_TOKEN: string = "access_token";
+
+export const USER_LOGIN: string = "userLogin";
 export const TOKEN_CYBERSOFT: string =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJUZXN0aW5nIDA0IiwiSGV0SGFuU3RyaW5nIjoiMDEvMTIvMjAyNSIsIkhldEhhblRpbWUiOiIxNzY0NTQ3MjAwMDAwIiwibmJmIjoxNzQwNTg5MjAwLCJleHAiOjE3NjQ2OTQ4MDB9.0mXLU2vygmpCOgJ_EA-Lr0C7fYh7fPC6gSUzVDLlrmg";
 

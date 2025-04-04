@@ -17,12 +17,12 @@ import Search from "./pages/Search/Search";
 import { store } from "./redux/store";
 import { Provider } from "react-redux";
 
-export const history: any = createBrowserHistory();
+export const routeLink: any = createBrowserHistory();
 
 function App() {
   return (
     <Provider store={store}>
-      <HistoryRouter history={history}>
+      <HistoryRouter history={routeLink}>
         <Routes>
           <Route path="" element={<HomeTemplate />}>
             <Route index element={<Home />}></Route>
